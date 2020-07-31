@@ -1,52 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-</head>
-
-<body>
-    <div class="container">
-        <!--Sets separate row just for title-->
-        <div class="row">
-            <!--Sets full width space for title column and centers text-->
-            <div class="col-md-12 text-center">
-                <!--Password Generator title at the top of the screen-->
-                <h1 class="pt-3">
-                    Password Generator
-                </h1>
-            </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
         </div>
-        <!--Sets row for generator-->
-        <div class="row pt-5">
-            <div class="col-md-1">
-                <!--Empty Space-->
-            </div>
-            <!--Column containing actual generator-->
-            <div class="col-md-10">
-                <!--Card box containing the actual generator-->
-                <div class="card">
-                    <div class="card-body">
-                        <h2>
-                            Generate a Password
-                        </h2>
-                        <!--Basically a placeholder for the password output-->
-                        <samp>This text is meant to be treated as sample output from a computer program.</samp>
-                        </br>
-                        <!--Button that generates a password (doesn't do anything right now)-->
-                        <button type="button" class="btn btn-danger mt-3 mx-auto">Generate</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-1">
-                <!--Empty Space-->
-            </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
         </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
     </div>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
