@@ -24,8 +24,14 @@ function generatePassword() {
   //User prompted to enter character length
   var numChar = parseInt(prompt("How many characters between 8 and 88 do you want?"));
 
-  //Stores all possible characters of selected criteria
+  //Limits user between 8 and 88 characters
+  if (8 <= numChar <= 88) {
+
+  //Container variable for storing all possible characters of selected criteria
   var pickedCharArr = [];
+
+  //Container variable for stored generated password
+  var randomGen = "";
 
   //Asks user if they want lowercase letters
   if (confirm("Do you want to include lowercase letters?")) {
@@ -46,6 +52,23 @@ function generatePassword() {
   if (confirm("Do you want to include special characters?")) {
     pickedCharArr.push(specChar);
   }
+
+  //Iterates through characters to match selected length
+  for (var i = 0; i < numChar; i++) {
+    var randomCharType = Math.floor(Math.random() * pickedCharArr.length);
+    var randomCharacter = Math.floor(Math.random() * pickedCharArr[randomCharType].length);
+    var randomPick = pickedCharArr[randomCharType][randomCharacter];
+    randomGen += randomPick;
+  }
+  return randomGen
+}
+
+//Displays error message when the number of characters is not between 8 and 88
+else {
+  alert("Refresh the page and try again with a number I can actually work with!");
+}
+
+
 }
 
 // Add event listener to generate button
