@@ -64,7 +64,8 @@ function generatePassword() {
   }
 
   else {
-    alert("Try generating another password and this time give me something I can work with!")
+    alert("Invalid character number!")
+    return "Try generating another password and this time give me something I can work with!"
   }
 }
 
