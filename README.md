@@ -10,4 +10,4 @@ As specified in the assignment, one can click the "Generate Password" button to 
 
 This site can be found at https://jordant111596.github.io/Password-Generator/
 
-![Image of Password Generator Site](/Assets/Deployed-PW-Generator.png?raw=true "Image of the Deployed Password Generator")
+![Image of Password Generator Site](Assets/Deployed-PW-Generator.png?raw=true "Image of the Deployed Password Generator")
