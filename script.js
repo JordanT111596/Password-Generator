@@ -2,9 +2,13 @@
 var generateBtn = document.querySelector("#generate");
 
 //Arrays for password choices
+//lowercase letters
 var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//uppercase letters
 var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+//numbers
 var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//special characters
 var specChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ":", ";", "<", ">", ",", ".", "[", "]", "{", "}", "?", "/"]
 
 
@@ -31,6 +35,7 @@ function generatePassword() {
   //Container variable for stored generated password
   var randomGen = "";
 
+  //Runs rest of function if the character length is valid
   if (numChar >= 8 && numChar <= 88) {
 
     //Asks user if they want lowercase letters
@@ -63,13 +68,12 @@ function generatePassword() {
     return randomGen
   }
 
+  //Displays error message when the number of characters is not between 8 and 88
   else {
     alert("Invalid character number!")
     return "Try generating another password and this time give me something I can work with!"
   }
 }
-
-//Displays error message when the number of characters is not between 8 and 88
 
 
 // Add event listener to generate button
