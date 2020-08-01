@@ -21,11 +21,9 @@ function writePassword() {
 
 //Defines generatePassword function
 function generatePassword() {
+
   //User prompted to enter character length
   var numChar = parseInt(prompt("How many characters between 8 and 88 do you want?"));
-
-  //Limits user between 8 and 88 characters
-  if (8 <= numChar <= 88) {
 
   //Container variable for storing all possible characters of selected criteria
   var pickedCharArr = [];
@@ -33,43 +31,45 @@ function generatePassword() {
   //Container variable for stored generated password
   var randomGen = "";
 
-  //Asks user if they want lowercase letters
-  if (confirm("Do you want to include lowercase letters?")) {
-    pickedCharArr.push(lowerLetters);
+  if (numChar >= 8 && numChar <= 88) {
+
+    //Asks user if they want lowercase letters
+    if (confirm("Do you want to include lowercase letters?")) {
+      pickedCharArr.push(lowerLetters);
+    }
+
+    //Asks user if they want uppercase letters
+    if (confirm("Do you want to include uppercase letters?")) {
+      pickedCharArr.push(upperLetters);
+    }
+
+    //Asks user if they want numbers
+    if (confirm("Do you want to include numbers?")) {
+      pickedCharArr.push(num);
+    }
+
+    //Asks user if they want special characters
+    if (confirm("Do you want to include special characters?")) {
+      pickedCharArr.push(specChar);
+    }
+
+    //Iterates through characters to match selected length
+    for (var i = 0; i < numChar; i++) {
+      var randomCharType = Math.floor(Math.random() * pickedCharArr.length);
+      var randomCharacter = Math.floor(Math.random() * pickedCharArr[randomCharType].length);
+      var randomPick = pickedCharArr[randomCharType][randomCharacter];
+      randomGen += randomPick;
+    }
+    return randomGen
   }
 
-  //Asks user if they want uppercase letters
-  if (confirm("Do you want to include uppercase letters?")) {
-    pickedCharArr.push(upperLetters);
+  else {
+    alert("Try generating another password and this time give me something I can work with!")
   }
-
-  //Asks user if they want numbers
-  if (confirm("Do you want to include numbers?")) {
-    pickedCharArr.push(num);
-  }
-
-  //Asks user if they want special characters
-  if (confirm("Do you want to include special characters?")) {
-    pickedCharArr.push(specChar);
-  }
-
-  //Iterates through characters to match selected length
-  for (var i = 0; i < numChar; i++) {
-    var randomCharType = Math.floor(Math.random() * pickedCharArr.length);
-    var randomCharacter = Math.floor(Math.random() * pickedCharArr[randomCharType].length);
-    var randomPick = pickedCharArr[randomCharType][randomCharacter];
-    randomGen += randomPick;
-  }
-  return randomGen
 }
 
 //Displays error message when the number of characters is not between 8 and 88
-else {
-  alert("Refresh the page and try again with a number I can actually work with!");
-}
 
-
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
